@@ -1,0 +1,394 @@
+/* Body */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #0d0d0d; /* Dark page background */
+    color: #f0f0f0;
+    margin: 0;
+    padding: 40px 20px;
+}
+
+/* Main heading */
+h1 {
+    color: #ff3c6e;
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 50px;
+    text-shadow: 0 0 15px #ff3c6e, 0 0 30px #ff9f1c;
+}
+
+/* Container for posts */
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    max-width: 800px;
+    margin: auto;
+}
+
+/* Individual post card */
+.post {
+    background: #1c1c1c; /* Dark card for contrast */
+    border-radius: 20px;
+    padding: 30px 35px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+    transition: transform 0.4s, box-shadow 0.4s, border 0.4s;
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 0.7s ease forwards;
+}
+
+/* Unique corner accent for each post */
+.post::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle at top left, #ff3c6e, #ff9f1c);
+    border-bottom-right-radius: 100%;
+    opacity: 0.2;
+    pointer-events: none;
+}
+
+/* Post hover effect */
+.post:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 60px rgba(255,60,110,0.5);
+    border: 1px solid #ff3c6e;
+}
+
+/* Post header */
+.post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+/* Avatar */
+.avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ff3c6e, #ff9f1c);
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+    box-shadow: 0 0 10px rgba(255,60,110,0.6);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.avatar:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 25px rgba(255,60,110,0.9);
+}
+
+/* Username */
+.user {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+/* Post ID */
+.pid {
+    margin-left: auto;
+    font-size: 0.85rem;
+    color: #bbb;
+}
+
+/* Post content */
+.post p {
+    color: #ddd;
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-top: 12px;
+}
+
+/* Post footer */
+.post-footer {
+    margin-top: 25px;
+    display: flex;
+    gap: 25px;
+    font-size: 0.9rem;
+}
+
+/* Footer span hover underline */
+.post-footer span {
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s;
+}
+.post-footer span::after {
+    content: '';
+    display: block;
+    height: 2px;
+    background: #ff3c6e;
+    width: 0;
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    transition: width 0.3s;
+}
+.post-footer span:hover {
+    color: #ff3c6e;
+}
+.post-footer span:hover::after {
+    width: 100%;
+}
+
+/* Fade-in animation */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Form styles */
+form, .edit-form {
+    max-width: 600px;
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+input[type="text"], textarea {
+    padding: 15px;
+    border: 2px solid #333;
+    border-radius: 10px;
+    font-size: 1rem;
+    background: #222;
+    color: #fff;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+input[type="text"]:focus, textarea:focus {
+    border-color: #ff3c6e;
+    box-shadow: 0 0 8px #ff3c6e;
+    outline: none;
+}
+
+/* Buttons - Unique and eye-catching */
+button {
+    border: none;
+    border-radius: 10px;
+    padding: 12px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
+}
+
+/* Submit / Primary */
+button.submit {
+    background: linear-gradient(135deg, #ff3c6e, #ff9f1c);
+    color: #fff;
+}
+button.submit:hover {
+    background: linear-gradient(135deg, #ff9f1c, #ff3c6e);
+    box-shadow: 0 8px 25px rgba(255,60,110,0.5);
+}
+
+/* Edit */
+button.edit {
+    background: linear-gradient(135deg, #3c9cff, #1c7fff);
+    color: #fff;
+}
+button.edit:hover {
+    background: linear-gradient(135deg, #1c7fff, #3c9cff);
+    box-shadow: 0 8px 25px rgba(28,127,255,0.5);
+}
+
+/* Delete */
+button.delete {
+    background: linear-gradient(135deg, #ff4c4c, #ff1c1c);
+    color: #fff;
+}
+button.delete:hover {
+    background: linear-gradient(135deg, #ff1c1c, #ff4c4c);
+    box-shadow: 0 8px 25px rgba(255,28,28,0.5);
+}
+
+/* Cancel */
+button.cancel {
+    background: linear-gradient(135deg, #888, #555);
+    color: #fff;
+}
+button.cancel:hover {
+    background: linear-gradient(135deg, #555, #888);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+}
+
+/* Like / Action */
+button.like {
+    background: linear-gradient(135deg, #00c853, #00b341);
+    color: #fff;
+}
+button.like:hover {
+    background: linear-gradient(135deg, #00b341, #00c853);
+    box-shadow: 0 6px 15px rgba(0,179,65,0.5);
+}
+
+/* Generic hover effect */
+button:hover {
+    transform: translateY(-2px);
+}
+
+/* Delete button positioning in footer */
+.post-footer .delete {
+    margin-left: auto;
+}
+
+/* Responsive design */
+@media (max-width: 700px) {
+    .container {
+        padding: 0 10px;
+    }
+    .post {
+        padding: 20px;
+    }
+    .post-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .pid {
+        margin-left: 0;
+    }
+    .post-footer {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 500px) {
+    .post-header {
+        align-items: center;
+    }
+    .post-footer {
+        align-items: center;
+    }
+    .post-footer .delete {
+        margin-left: 0;
+        margin-top: 10px;
+    }      
+}
+
+/* Create Post Form Container */
+.create-post {
+    max-width: 600px;
+    margin: 40px auto;
+    background: #1c1c1c; /* Dark card */
+    padding: 30px 35px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 0.7s ease forwards;
+}
+
+/* Neon corner accent */
+.create-post::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle at top left, #ff3c6e, #ff9f1c, #3c9cff);
+    border-bottom-right-radius: 100%;
+    opacity: 0.2;
+    pointer-events: none;
+    animation: pulseCorner 4s infinite;
+}
+
+/* Form layout */
+.create-post form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Input & textarea */
+.create-post input[type="text"],
+.create-post textarea {
+    padding: 15px;
+    border: 2px solid #333;
+    border-radius: 10px;
+    background: #222;
+    color: #fff;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.create-post input[type="text"]:focus,
+.create-post textarea:focus {
+    border-color: #ff3c6e;
+    box-shadow: 0 0 8px #ff3c6e;
+    outline: none;
+}
+
+/* Submit button */
+.create-post button.submit {
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #ff3c6e, #ff9f1c);
+    color: #fff;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.create-post button.submit:hover {
+    background: linear-gradient(135deg, #ff9f1c, #ff3c6e);
+    box-shadow: 0 8px 25px rgba(255,60,110,0.5);
+    transform: translateY(-2px);
+}
+
+/* Cancel button */
+.create-post button.cancel {
+    padding: 12px 18px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #888, #555);
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.create-post button.cancel:hover {
+    background: linear-gradient(135deg, #555, #888);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+    transform: translateY(-2px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .create-post {
+        padding: 20px;
+    }
+}
+/* Create Post Button */
+.create {
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    padding: 12px 20px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #ff3c6e, #ff9f1c);
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.create:hover {
+    background: linear-gradient(135deg, #ff9f1c, #ff3c6e);
+    box-shadow: 0 8px 25px rgba(255,60,110,0.5);
+    transform: translateY(-2px);
+}
+
+

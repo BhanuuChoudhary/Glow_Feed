@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALL Posts</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>GlowFeed</h1>
+    <% for(post of posts){ %>
+        <div class="post">
+            <h3 class="user">@ <%= post.username %></h3>
+            <p class="content"><%= post.content %></p>
+            <br>
+            
+            <button class="detail">
+                <a href="http://localhost:8080/post/<%= post.id %>">See in Detail</a>
+            </button>
+            <button class="edit">
+                <a href="http://localhost:8080/post/<%= post.id %>/edit">Edit</a>
+            </button>
+                <form action="/post/<%= post.id %>?_method=DELETE" method="POST">
+                <button type="submit" class="delete">Delete</button>
+                </form>
+            </form>
+        </div>
+
+        <% } %>
+
+        <br>
+        <br>
+        <button class="create"><a href="/post/new">Create a New Post</a></button>
+</body>
+</html>
+

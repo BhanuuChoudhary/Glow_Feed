@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= post.title %></title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h2>Here your post in detail</h2>
+    <p class="pid">Post id : <%= post.id %></p>
+<div class="post">
+    <div class="post-header">
+        <div class="avatar"><%= post.username.charAt(0) %></div>
+        <span class="user"><%= post.username %></span>
+        <span class="pid">ID: <%= post.id %></span>
+    </div>
+    <p><%= post.content %></p>
+    <div class="post-footer">
+        <span>Upvote</span>
+        <span>Comment</span>
+        <span>Share</span>
+    </div>
+</div>
+
+
+    
+</body>
+</html>
